@@ -6,6 +6,9 @@ import ui from '@/components/ui'
 import apis from '@/components/apis'
 import note from '@/components/note.vue'
 import editor from '@/components/editor.vue'
+import videos from '@/components/videos.vue'
+import aipt from '@/components/AIPT.vue'
+import tasks from '@/components/tasks.vue'
 
 Vue.use(Router)
 
@@ -40,6 +43,21 @@ export default new Router({
       path: '/editor',
       name: 'editor',
       component: editor
+    },
+    {
+      path: '/videos',
+      name: 'videos',
+      component: videos
+    },
+    {
+      path: '/aipt',
+      name: 'aipt',
+      component: aipt
+    },
+    {
+      path: '/tasks',
+      name: 'tasks',
+      component: tasks
     }
   ]
 })

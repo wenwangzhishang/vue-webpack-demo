@@ -1,73 +1,72 @@
 <template>
   <div>
     <h1>{{ msg }}</h1>
-    <h2>网易</h2>
     <ul>
-      <li></li>
+      <li v-for="(api,index) of apis" :key="index">
+        <label>
+          {{api.dec}}
+          <input type="text" readonly v-model="api.url">
+          <button @click="test_api(api.url)">测试</button>
+        </label>
+      </li>
     </ul>
-    <h2>今日头条</h2>
-
   </div>
 </template>
 
 <script>
+// import $ from 'jquery'
 import axios from 'axios'
-// Vue.prototype.$axios = axios
-  export default {
-    name: 'api_test',
-    data() {
-      return {
-        msg: 'openAPI',
-        api: {
-          wangyi: 'http://wangyi.butterfly.mopaasapp.com/news/api',
-          fish: {
-            area: 'http://www.fishesdata.com/api/kog/search',
-            params: {
-              key: null
-            }
-          }
-        }
-      }
-    },
-    created() {
-      this.getinfo_fish()
-    },
-    methods: {
-      getinfo_fish() {
-        var that = this;
-        axios({
-          method: 'get',
-          url: that.api.fish.area,
-          params: {
-            key: 'hooer'
-          }
-        }).then(function(res) {
-          console.log(res.data)
-        })
-      }
-
+export default {
+  name: 'api_test',
+  data() {
+    return {
+      msg: 'API列表',
+      apis: [
+        { url: 'http://localhost:3005/login', dec: '登录' },
+        { url: 'http://localhost:3005/login', dec: '注册' },
+        { url: 'http://localhost:3005/user/id', dec: '用户id' },
+      ],
     }
+  },
+  created() { },
+  methods: {
+    test_api(url) {
+      var that = this;
+      axios.get(url)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
+
   }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  h1,
-  h2 {
-    font-weight: normal;
-  }
+h1,
+h2 {
+  font-weight: normal;
+}
 
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
+ul {
+  list-style-type: none;
+  padding: 0;
+}
 
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
+li {
+  margin: 20px 0;
+}
 
-  a {
-    color: #42b983;
-  }
+a {
+  color: #42b983;
+}
+
+input {
+  display: inline-block;
+  min-width: 200px;
+}
 </style>
