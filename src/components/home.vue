@@ -51,6 +51,10 @@ export default {
           path: 'tasks',
           alt: "每日任务",
         },
+        {
+          path: 'serious',
+          alt: "正经网",
+        },
       ]
     }
   },

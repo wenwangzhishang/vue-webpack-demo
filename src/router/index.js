@@ -9,6 +9,7 @@ import editor from '@/components/editor.vue'
 import videos from '@/components/videos.vue'
 import aipt from '@/components/AIPT.vue'
 import tasks from '@/components/tasks.vue'
+import serious from '@/components/serious.vue'
 
 Vue.use(Router)
 
@@ -58,6 +59,11 @@ export default new Router({
       path: '/tasks',
       name: 'tasks',
       component: tasks
+    },
+    {
+      path: '/serious',
+      name: 'serious',
+      component: serious
     }
   ]
 })

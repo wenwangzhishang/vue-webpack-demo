@@ -25,6 +25,7 @@ export default {
         { url: 'http://localhost:3005/login', dec: '登录' },
         { url: 'http://localhost:3005/login', dec: '注册' },
         { url: 'http://localhost:3005/user/id', dec: '用户id' },
+        { url: 'http://localhost:3005/price', dec: '价格' },
       ],
     }
   },
